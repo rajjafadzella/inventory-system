@@ -31,9 +31,10 @@ RUN composer dump-autoload --optimize
 # Build frontend assets (CSS/JS via Vite)
 RUN npm ci && npm run build
 
-# Set permission agar Nginx/Laravel bisa menulis log dan cache
+# Set permission agar Nginx/Laravel bisa menulis log, cache, dan file upload sementara
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chown -R www-data:www-data /var/lib/nginx /var/log/nginx
 
 # Salin konfigurasi Nginx internal
 COPY .docker/nginx.conf /etc/nginx/nginx.conf
