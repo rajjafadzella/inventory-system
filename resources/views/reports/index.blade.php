@@ -25,6 +25,9 @@
                         <a href="{{ route('reports.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded-md font-semibold text-sm hover:bg-gray-600 transition text-center">
                             Reset
                         </a>
+                        <a href="{{ route('reports.export', ['start_date' => request('start_date'), 'end_date' => request('end_date')]) }}" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md font-semibold text-sm transition text-center">
+                            Export Excel
+                        </a>
                         <button type="button" onclick="window.print()" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-semibold text-sm transition">
                             Cetak PDF
                         </button>

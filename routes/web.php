@@ -31,7 +31,8 @@ Route::middleware(['auth', 'role:Admin,Staff'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:Admin,Manager'])->group(function () {
-    Route::get('reports', ReportController::class)->name('reports.index');
+    Route::get('reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('reports/export', [ReportController::class, 'export'])->name('reports.export');
 });
 
 Route::get('/storage/{path}', function ($path) {
@@ -41,5 +42,28 @@ Route::get('/storage/{path}', function ($path) {
     }
     return response()->file(\Illuminate\Support\Facades\Storage::disk('public')->path($path));
 })->where('path', '.*');
+
+// ==================== REST API ====================
+Route::prefix('api')->group(function () {
+    // 1. Endpoint untuk list semua barang
+    Route::get('/products', function () {
+        $products = \App\Models\Product::with('category')->get();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Daftar barang inventaris',
+            'data' => $products
+        ], 200);
+    });
+
+    // 2. Endpoint untuk detail satu barang berdasarkan ID
+    Route::get('/products/{product}', function (\App\Models\Product $product) {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Detail barang inventaris',
+            'data' => $product->load('category')
+        ], 200);
+    });
+});
+
 
 require __DIR__.'/auth.php';
