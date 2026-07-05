@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', DashboardController::class)
-    ->middleware(['auth', 'verified', 'role:Admin,Manager'])
+    ->middleware(['auth', 'verified', 'role:Admin,Staff,Manager'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
