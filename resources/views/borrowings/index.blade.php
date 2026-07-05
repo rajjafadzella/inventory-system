@@ -15,14 +15,14 @@
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="flex justify-between items-center mb-6">
-                    <a href="{{ route('borrowings.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 transition duration-150">
+                    <a href="{{ route('borrowings.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-sm text-white hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 transition duration-150">
                         + Tambah Peminjaman
                     </a>
                 </div>
 
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 normal-case bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-semibold tracking-wide">
                             <tr>
                                 <th class="px-6 py-3">Nama Peminjam</th>
                                 <th class="px-6 py-3">Barang</th>
@@ -60,7 +60,7 @@
                                                 <form action="{{ route('borrowings.return', $borrowing->id) }}" method="POST" onsubmit="return confirm('Apakah barang ini benar-or-benar sudah dikembalikan?')">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit" class="px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-xs font-semibold uppercase tracking-wider transition">
+                                                    <button type="submit" class="px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-xs font-semibold transition">
                                                         Proses Kembali
                                                     </button>
                                                 </form>

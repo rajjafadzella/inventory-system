@@ -84,13 +84,13 @@ jobs:
       # 8. Deploy ke Cloud Run
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy telkomsel-inventory \
+          gcloud run deploy inventory-system \
             --image=${{ env.IMAGE }}:${{ github.sha }} \
             --platform=managed \
             --region=${{ secrets.GCP_REGION }} \
             --allow-unauthenticated \
             --port=8080 \
-            --set-env-vars="APP_NAME=Telkomsel Inventory" \
+            --set-env-vars="APP_NAME=Inventory System" \
             --set-env-vars="APP_ENV=production" \
             --set-env-vars="APP_URL=${{ secrets.APP_URL }}" \
             --set-env-vars="APP_DEBUG=false" \

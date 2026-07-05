@@ -51,7 +51,7 @@
 
                     <div class="flex items-center justify-end gap-4">
                         <a href="{{ route('borrowings.index') }}" class="text-sm text-gray-600 dark:text-gray-400 hover:underline">Batal</a>
-                        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs uppercase tracking-widest rounded-md transition">
+                        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-md transition">
                             Simpan Peminjaman
                         </button>
                     </div>

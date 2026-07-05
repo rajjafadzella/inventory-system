@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('logo-telkomsel.webp') }}" alt="Telkomsel Logo" class="h-8 w-auto">
+                        <img src="{{ asset('logo-telkomsel.webp') }}" alt="Telkomsel Logo" class="h-10 w-auto">
                     </a>
                 </div>
 

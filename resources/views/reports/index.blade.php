@@ -19,13 +19,13 @@
                         <x-text-input id="end_date" name="end_date" type="date" class="mt-1 block w-full" value="{{ request('end_date') }}" />
                     </div>
                     <div class="flex gap-2 w-full md:w-auto">
-                        <button type="submit" class="px-4 py-2 bg-gray-800 dark:bg-gray-200 dark:text-gray-800 text-white rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 transition">
+                        <button type="submit" class="px-4 py-2 bg-gray-800 dark:bg-gray-200 dark:text-gray-800 text-white rounded-md font-semibold text-sm hover:bg-gray-700 transition">
                             Filter
                         </button>
-                        <a href="{{ route('reports.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-600 transition text-center">
+                        <a href="{{ route('reports.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded-md font-semibold text-sm hover:bg-gray-600 transition text-center">
                             Reset
                         </a>
-                        <button type="button" onclick="window.print()" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-semibold text-xs uppercase tracking-widest transition">
+                        <button type="button" onclick="window.print()" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-semibold text-sm transition">
                             Cetak PDF
                         </button>
                     </div>
@@ -45,7 +45,7 @@
                 
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border print:text-black print:border-black">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 print:bg-gray-200">
+                        <thead class="text-xs text-gray-700 normal-case bg-gray-50 dark:bg-gray-700 dark:text-gray-400 print:bg-gray-200 font-semibold tracking-wide">
                             <tr>
                                 <th class="px-6 py-3 border">Peminjam</th>
                                 <th class="px-6 py-3 border">Kode Barang</th>

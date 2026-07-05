@@ -11,17 +11,17 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-blue-500">
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Total Jenis Barang</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Jenis Barang</div>
                     <div class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">{{ $totalProducts }}</div>
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-yellow-500">
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Unit Barang Dipinjam</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Unit Barang Dipinjam</div>
                     <div class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">{{ $totalBorrowed }}</div>
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-green-500">
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Kategori Barang Tersedia</div>
+                    <div class="text-sm font-medium text-gray-500 dark:text-gray-400">Kategori Barang Tersedia</div>
                     <div class="mt-2 text-3xl font-bold text-gray-900 dark:text-white">{{ $totalAvailable }}</div>
                 </div>
 
