@@ -6,6 +6,9 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
+echo "Creating storage symlink..."
+php artisan storage:link || true
+
 echo "Starting PHP-FPM..."
 php-fpm &
 
