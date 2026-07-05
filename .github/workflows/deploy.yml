@@ -45,7 +45,27 @@ jobs:
           docker push ${{ env.IMAGE }}:${{ github.sha }}
           docker push ${{ env.IMAGE }}:latest
 
-      # 7. Deploy ke Cloud Run
+      # 7. Jalankan Migration via Cloud Run Job
+      - name: Run Database Migrations
+        run: |
+          gcloud run jobs delete migrate-job --region=${{ secrets.GCP_REGION }} --quiet || true
+          gcloud run jobs create migrate-job \
+            --image=${{ env.IMAGE }}:${{ github.sha }} \
+            --region=${{ secrets.GCP_REGION }} \
+            --set-env-vars="APP_KEY=${{ secrets.APP_KEY }}" \
+            --set-env-vars="DB_CONNECTION=pgsql" \
+            --set-env-vars="DB_HOST=${{ secrets.DB_HOST }}" \
+            --set-env-vars="DB_PORT=5432" \
+            --set-env-vars="DB_DATABASE=postgres" \
+            --set-env-vars="DB_USERNAME=${{ secrets.DB_USERNAME }}" \
+            --set-env-vars="DB_PASSWORD=${{ secrets.DB_PASSWORD }}" \
+            --command="php" \
+            --args="artisan,migrate,--force"
+          gcloud run jobs execute migrate-job \
+            --region=${{ secrets.GCP_REGION }} \
+            --wait
+
+      # 8. Deploy ke Cloud Run
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy telkomsel-inventory \
